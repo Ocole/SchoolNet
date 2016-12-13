@@ -1,0 +1,51 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.android.pronetway.schoolnet.fragment.HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.youth.banner.Banner
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
+
+        <include layout="@layout/fragment_home_msgbtn" />
+
+        <com.flyco.tablayout.CommonTabLayout
+            android:id="@+id/ctab_news_fragment_home"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="#ffffff"
+            android:clickable="true"
+            android:padding="3dp"
+            tl:tl_divider_color="@color/turquoise"
+            tl:tl_divider_padding="13dp"
+            tl:tl_divider_width="1dp"
+            tl:tl_indicator_bounce_enable="true"
+            tl:tl_indicator_color="@color/turquoise"
+            tl:tl_indicator_gravity="BOTTOM"
+            tl:tl_indicator_height="2dp"
+            tl:tl_textSelectColor="@color/black"
+            tl:tl_textUnselectColor="#66000000"
+            tl:tl_textsize="20sp"
+            tl:tl_underline_color="#DDDDDD"
+            tl:tl_underline_gravity="TOP"
+            tl:tl_underline_height="1dp" />
+
+        <FrameLayout
+            android:id="@+id/fl_home_change"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+</ScrollView>
+
+

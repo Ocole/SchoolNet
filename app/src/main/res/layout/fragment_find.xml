@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+效果分析：
+有一个ImageView和一个ToolBar对象
+如果要实现ImageView和ToolBar可折叠效果需要将其放置在CollapsingToolbarLayout
+谷歌要求CollapsingToolbarLayout需要放在CoordinatorLayout才能实现折叠效果
+界面最下方有一个可以滑动的文本信息需要放置在NestedScrollView控件当中
+    必须是NestedScrollView或者是RecyclerView
+默认NestedScrollView会跟CollapsingToolbarLayout造成重叠效果
+需要将CollapsingToolbarLayout放置在AppBarLayout中
+-->
+
+<!--
+实现步骤：
+1 build.gradle中添加依赖包
+2 最外层布局使用CoordinatorLayout
+3 将CollapsingToolbarLayout放置在AppBarLayout：
+    只有放置在AppBarLayout中，界面下方的Scrollview才能显示在ToolBar的下方
+-->
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar_Main"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <!--
+        CollapsingToolbarLayout的属性解释
+        layout_scrollFlags设置滚动状态
+            scroll 设置CollapsingToolbarLayout可滚动，随着手指移动
+            snap   手指抬起时，CollapsingToolbarLayout会就近进行折叠
+            enterAlwaysCollapsed 当NestedScrollView的第一条显示到屏幕上时，CollapsingToolbarLayout进行折叠
+            exitUntilCollapsed 当CollapsingToolbarLayout折叠到最小高度(ToolBar的高度)时就不在进行折叠
+        -->
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collaps"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="@color/rosybrown"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title="校园消息">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/guide0" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolBar_Main"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <!--下方的可滑动视图必须使用NestedScrollView或者RecyclerView -->
+    <!--
+    设置app:layout_behavior="@string/appbar_scrolling_view_behavior"的作用是使NestedScrollView显示在AppBarLayout下方
+    -->
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/text" />
+
+            <com.flyco.tablayout.CommonTabLayout
+                android:id="@+id/ctab_news_fragment_home"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="#ffffff"
+                android:clickable="true"
+                android:padding="3dp"
+                tl:tl_divider_color="@color/turquoise"
+                tl:tl_divider_padding="13dp"
+                tl:tl_divider_width="1dp"
+                tl:tl_indicator_bounce_enable="true"
+                tl:tl_indicator_color="@color/turquoise"
+                tl:tl_indicator_gravity="BOTTOM"
+                tl:tl_indicator_height="2dp"
+                tl:tl_textSelectColor="@color/black"
+                tl:tl_textUnselectColor="#66000000"
+                tl:tl_textsize="20sp"
+                tl:tl_underline_color="#DDDDDD"
+                tl:tl_underline_gravity="TOP"
+                tl:tl_underline_height="1dp" />
+
+            <FrameLayout
+                android:id="@+id/fl_home_changes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <!--
+    elevation属性指定FAB在Z轴上的高度
+    layout_anchor设置FAB显示位置依赖
+    layout_anchorGravity设置FAB的重心位置
+    src设置FAB的显示图标
+    -->
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_Main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_input_add"
+        app:elevation="5dp"
+        app:layout_anchor="@id/appBar_Main"
+        app:layout_anchorGravity="bottom|right" />
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/rv_Main"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"></android.support.v7.widget.RecyclerView>-->
+
+
+   
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <style type="text/css">
+        html,body{
+        height: 100%;
+        width:100%;
+        margin:0;
+        padding:0;
+        }
+        #header{
+        text-align: center; background-color: #81a9c3; color: #fff;
+        height:45px;
+        line-height:45px;
+        width: 100%;
+        font-size:1.0em;
+        }
+        .fun{
+        text-align: center; background-color: #81a9c3; color: #fff;
+        height:35px;
+        line-height:35px;
+        width: 80%;
+        margin-top:20px;
+        margin-left:auto;
+        margin-right:auto;
+        font-size:0.9em;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="header">
+        JavaScript回调Java本地方法
+    </div>
+    <div id="show" class="fun" onclick="show();">
+        展示android Toast
+    </div>
+    <div id="next"  class="fun"  onclick="next();">
+        跳转到下一个界面
+    </div>
+    <div id="close"  class="fun"  onclick="closeCur();">
+        关闭当前Activity
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    show = function(){
+        NativeJavaScript.showToast();
+    };
+    next = function(){
+        NativeJavaScript.startNextActivity();
+    };
+    closeCur = function(){
+        NativeJavaScript.closeCurActivity();
+    };
+
+</script>
+</html>

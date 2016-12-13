@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@android:style/Theme.Light.NoTitleBar"
+    >
+
+   <android.support.v4.view.ViewPager
+       android:id="@+id/welcome_pager"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"/>
+
+
+    <!-- 使用第三方框架提供的ViewPager.功能点更加多-->
+    <!-- 使用了比较现在比较流行的ViewPagerIndicator框架-->
+    <!-- ViewPager中使用了默认小圆点的Indicator-->
+    <!-- 使用自定义的属性-->
+    <!-- layout_gravity设置指定的位置-->
+    <com.viewpagerindicator.CirclePageIndicator
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="bottom"
+        android:id="@+id/cycle_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:centered = "true"
+        app:radius="4dp"
+        app:strokeColor="@color/color_grey"
+        app:strokeWidth="2dp"
+        app:fillColor="@color/color_white"
+        app:snap="true"
+        />
+
+</FrameLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.flyco.tablayout.CommonTabLayout
+        tl:tl_divider_color="@color/lightslategray"
+        tl:tl_divider_padding="13dp"
+        tl:tl_divider_width="1dp"
+        android:clickable="true"
+        android:id="@+id/ctab_fragment_home"
+        tl:tl_iconGravity="TOP"
+        tl:tl_iconHeight="45dp"
+        tl:tl_iconMargin="5dp"
+        tl:tl_iconWidth="45dp"
+        tl:tl_indicator_bounce_enable="true"
+        tl:tl_indicator_color="@color/oriange"
+        tl:tl_indicator_gravity="BOTTOM"
+        tl:tl_indicator_height="0dp"
+        tl:tl_textSelectColor="@color/black"
+        tl:tl_textUnselectColor="#66000000"
+        tl:tl_textsize="10sp"
+        tl:tl_underline_color="#DDDDDD"
+        tl:tl_underline_gravity="TOP"
+        tl:tl_underline_height="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#ffffff" />
+
+</merge>

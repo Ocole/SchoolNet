@@ -1,0 +1,10 @@
+<persons>
+    　　<person id="3"  >
+    　　　　<name>李明</name>
+    　　　　<age>30</age>
+    　　</person>
+    　　<person id="4" >
+    　　　　<name>李向梅</name>
+    　　　　<age>25</age>
+    　　</person>
+</persons>

@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+    defaultConfig {
+        applicationId "com.android.pronetway.schoolnet"
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    provided fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    testCompile 'junit:junit:4.12'
+    compile files('libs/AMap_3DMap_V4.0.1_20160923.jar')
+    compile files('libs/AMap_Location_V2.4.1_20160414.jar')
+    compile files('libs/gson-2.2.4.jar')
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    compile 'com.facebook.stetho:stetho-okhttp3:1.3.1'
+    compile 'com.yanzhenjie.nohttp:okhttp:1.1.0'
+    compile 'com.blankj:utilcode:1.3.4'
+    compile 'com.facebook.fresco:fresco:0.12.0'
+    // 在 API < 14 上的机器支持 WebP 时，需要添加
+    compile 'com.facebook.fresco:animated-base-support:0.12.0'
+    // 支持 GIF 动图，需要添加
+    compile 'com.facebook.fresco:animated-gif:0.12.0'
+    // 支持 WebP （静态图+动图），需要添加
+    compile 'com.facebook.fresco:animated-webp:0.12.0'
+    compile 'com.facebook.fresco:webpsupport:0.12.0'
+    //轮播图
+    compile 'com.youth.banner:banner:1.4.4'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    //因为是lib/library的情况,在最末尾补上@aar 类似源jar
+    compile 'com.viewpagerindicator:library:2.4.1@aar'
+    compile 'com.android.support:support-v4:24.2.1'
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.0@aar'
+    compile 'com.android.support:design:24.0.0-alpha2'
+    compile 'com.android.support:recyclerview-v7:24.0.0'
+    compile 'com.loopj.android:android-async-http:1.4.9'
+    compile files('libs/commons-net-1.4.1.jar')
+
+    compile ('com.android.support:support-v4:24.2.1'){
+        force = true;
+    }
+    compile 'com.thefinestartist:finestwebview:1.2.7'
+
+}
